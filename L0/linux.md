@@ -6,4 +6,4 @@
 ​    因未安装gradio ，因此通过 pip install gradio 安装 ，之后通过 隧道 映射本地端口 通过localhoust:7860访问hello_world.py生成的页面
 ​    
 
-![zhujiemian](./img/index.png)
+![x](./img/index.png)
