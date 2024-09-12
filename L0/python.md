@@ -49,7 +49,7 @@ output:
 python -m debugpy --listen 5678 --wait-for-client ./task/debug.py --<config>
 ```
 
-![1](.\img\1.png)
+![1](./img/1.png)
 
 
 
