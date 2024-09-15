@@ -25,3 +25,5 @@ solution: pip install numpy==1.26.4
 ![微调前](./img/ft_before.png)
 
 属于上海人工智能实验室的AI助手
+
+![微调后](./img/ft_after.png)
