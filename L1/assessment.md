@@ -53,7 +53,10 @@ models = hf_internlm2_chat_1_8b_models
 # 通过文件导入参数
 cd /root/opencompass
 python run.py configs/eval_tutorial_demo.py --debug
+
 ~~~
+
+# 3 输出信息
 
 
 ~~~ python 
