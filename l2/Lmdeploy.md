@@ -65,3 +65,14 @@ lmdeploy serve api_server \
   --batch-size 1 \
   --search-scale False \
   --work-dir /root/models/internlm2_5-7b-chat-w4a16-4bit
+
+
+
+  datasets package 3.0.0对于数据集的下载出错
+  降级到 2.1.3后解决
+  ![](./img/quantify.png)
+
+  量化完成
+
+
+  ![](./img/talk.png)
