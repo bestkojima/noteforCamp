@@ -1,58 +1,48 @@
 # task 1
 
-```python
-inputs = """
-Got this panda plush toy for my daughter's birthday,
-who loves it and takes it everywhere. It's soft and
-super cute, and its face has a friendly look. It's
-a bit small for what I paid though. I think there
-might be other options that are bigger for the
-same price. It arrived a day earlier than expected,
-so I got to play with it myself before I gave it
-to her.
-"""
-
-# 去除多余的空格和换行符
-inputs = inputs.lower()
-inputs = inputs.replace("\n", " ").strip()
-
-words = inputs.split()        
-print("Number of words:", len(words))
-print(words)
-print("###############")
-# 统计每个单词出现的次数
-word_count = {}
-word_count = {word: words.count(word) for word in set(words)}
-
-print(word_count)
-print(type(word_count))
-
-
-output:
-    ###########
-    {'who': 1, "daughter's": 1, 'might': 1, 'look.': 1, 'paid': 1, 'this': 1, 'be': 1, 'i': 4, 'cute,': 1, 'what': 1, 'other': 1, 'with': 1, 'earlier': 1, 'soft': 1, 'though.': 1, 'super': 1, 'bit': 1, 'and': 3, 'that': 1, 'so': 1, 'takes': 1, 'got': 2, 'panda': 1, 'price.': 1, 'its': 1, 'friendly': 1, 'day': 1, 'bigger': 1, 'before': 1, 'options': 1, 'it': 5, 'small': 1, 'a': 3, 'arrived': 1, 'there': 1, 'my': 1, 'to': 2, 'her.': 1, "it's": 2, 'face': 1, 'has': 1, 'everywhere.': 1, 'the': 1, 'myself': 1, 'think': 1, 'toy': 1, 'than': 1, 'play': 1, 'gave': 1, 'plush': 1, 'birthday,': 1, 'for': 3, 'loves': 1, 'same': 1, 'expected,': 1, 'are': 1}
-<class 'dict'>
-
-```
+![3](./img/leetcode.png)
 
 # task 2
 
-1.通过python debug 简单 适用于不需要输入命令参数的python文件
 
 
 
-2.一些运行的main文件需要输入参数，为了通过命令行输入 参数， 需要设置一个remote server 作为中继 从而实现 配置参数的输入
-
-通过建立remote config 文件 ，之后通过以下命令运行，后面可根据具体文件要求输入参数
 
 ```python
-python -m debugpy --listen 5678 --wait-for-client ./task/debug.py --<config>
+from openai import OpenAI
+import json
+def internlm_gen(prompt,client):
+    '''
+    LLM生成函数
+    Param prompt: prompt string
+    Param client: OpenAI client 
+    '''
+    response = client.chat.completions.create(
+        model="internlm2.5-latest",
+        messages=[
+            {"role": "user", "content": prompt},
+      ],
+        stream=False
+    )
+    return response.choices[0].message.content
+
+api_key = ''
+client = OpenAI(base_url="https://internlm-chat.intern-ai.org.cn/puyu/api/v1/",api_key=api_key)
+
+content = """
+书生浦语InternLM2.5是上海人工智能实验室于2024年7月推出的新一代大语言模型，提供1.8B、7B和20B三种参数版本，以适应不同需求。
+该模型在复杂场景下的推理能力得到全面增强，支持1M超长上下文，能自主进行互联网搜索并整合信息。
+"""
+prompt = f"""
+请帮我从以下``内的这段模型介绍文字中提取关于该模型的信息，要求包含模型名字、开发机构、提供参数版本、上下文长度四个内容，以json格式返回。
+`{content}`
+"""
+res = internlm_gen(prompt,client)
+res=json.dumps(res) # addtional
+res_json = json.loads(res)
+print(res_json)
 ```
 
-![1](./img/1.png)
+![1](./img/past.png)
 
 
-
-![2](./img/2.png)
-
-![](./img/3.png)
