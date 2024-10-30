@@ -1,7 +1,7 @@
 # task 1
 
 ![3](./img/leetcode.png)
-'''python
+```python
 
 class Solution {
 public:
@@ -23,7 +23,7 @@ public:
 };
 
 
-'''
+```
 
 # task 2
 
