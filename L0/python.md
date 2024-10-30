@@ -1,6 +1,29 @@
 # task 1
 
 ![3](./img/leetcode.png)
+'''python
+
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        unordered_map<char, int> charCountMap;
+        for (char c : ransomNote) {
+            charCountMap[c]++;
+        }
+        for (char c : magazine) {
+            charCountMap[c]--;
+        }
+        for (const auto& pair : charCountMap) {
+            if (pair.second > 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+
+
+'''
 
 # task 2
 
