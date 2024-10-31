@@ -8,4 +8,4 @@ pr link https://github.com/InternLM/Tutorial/pull/2189
 
 # task2
 
-repo link https://github.com/bestkojima/Tutorial/tree/class
+repo link https://github.com/InternLM/Tutorial/tree/camp4
